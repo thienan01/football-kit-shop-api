@@ -1,5 +1,4 @@
 const User = require("../models/User");
-const { all } = require("../routes/auth.router");
 
 let createNewUser = (data) => {
   return new Promise(async (resolve, reject) => {

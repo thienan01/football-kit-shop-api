@@ -14,6 +14,12 @@ class ApiError {
   static notFound(msg, msgDetail) {
     return new ApiError(404, msg, msgDetail);
   }
+  static unauthorized(msg, msgDetail) {
+    return new ApiError(401, msg, msgDetail);
+  }
+  static forbidden(msg, msgDetail) {
+    return new ApiError(403, msg, msgDetail);
+  }
 }
 
 module.exports = ApiError;

@@ -17,7 +17,7 @@ class AuthUtil {
       userPassword,
       process.env.PASS_SEC
     ).toString(CryptoJS.enc.Utf8);
-
+    
     if (originalPassword === inputPassword) return true;
     else return false;
   }
@@ -28,6 +28,14 @@ class AuthUtil {
 
   static createToken(data) {
     return jwt.sign({ _id: data }, process.env.PASS_TOKEN);
+  }
+
+  static verifyToken(token) {
+    try {
+      return jwt.verify(token, process.env.PASS_TOKEN);
+    } catch (error) {
+      return error;
+    }
   }
 }
 
